@@ -63,4 +63,18 @@ function success(position) {
 
 $(document).ready(function(){
   wPage.init();
+
+  $('.weather-wrapper').on('click', '.set-city', function(event) {
+    //do stuff
+    event.preventDefault();
+    var city = $('input[name="city"]').val();
+    console.log(city);
+    var apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial"
+    console.log(apiURL);
+    var newWeather = $.getJSON(apiURL, function(data){
+      console.log(data);
+      $('.cur-weather').remove();
+      wPage.renderCWeather(data);
+    });
+  });
 });

@@ -5,18 +5,23 @@
   <title>Weather App</title>
   <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="assets/lumen.css">
+  <link rel="stylesheet" href="assets/weather-icons-master/css/weather-icons.css">
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBNLDwRv4ItlTJRouExNPpJokdKK859yDk">
+  </script>
+  <link rel="stylesheet" href="assets/css/lumen.css">
   <link rel="stylesheet" href="assets/css/compiled.css">
 </head>
 <body>
+  <div id="googlemaps"></div>
   <div class="container">
     <div class="weather-wrapper">
       <section>
 
       </section>
-        <input type="text" name="city" placeholder="City, Country"><a class ="btn btn-primary" href="">Set City</a>
-        <p>OR</p>
-        <input type="text" name="lat" placeholder="Latitude">, <input type="text" name="long" placeholder="Longtitude"><a class ="btn btn-primary" href="">Set Coordiantes</a>
+        <input type="text" name="city" placeholder="City, Country"><a class ="btn btn-primary set-city" href="">Set City</a>
+        <!-- <p>OR</p>
+        <input type="text" name="lat" placeholder="Latitude">, <input type="text" name="long" placeholder="Longtitude"><a class ="btn btn-primary set-coord" href="">Set Coordiantes</a> -->
     </div>
 
 <!--Bower components-->
@@ -25,6 +30,7 @@
 <script src="assets/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/bower_components/moment/moment.js"></script>
 <!--Templates here -->
+<script src="assets/js/icons.js"></script>
 <script src="assets/js/templatefunctions.js"></script>
 <script src="assets/js/templates.js"></script>
 <!--Main app script -->
