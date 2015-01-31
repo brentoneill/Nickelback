@@ -16,9 +16,11 @@ body, p, ul, h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-  color: #26A86D; }
+  color: white; }
   a:visited {
-    color: #26A86D; }
+    color: white; }
+  a:hover {
+    color: white; }
 
 body {
   font-family: "Raleway", sans-serif; }
