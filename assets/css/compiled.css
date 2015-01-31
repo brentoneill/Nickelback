@@ -21,7 +21,8 @@ a {
     color: #26A86D; }
 
 body {
-  font-family: "Raleway", sans-serif; }
+  font-family: 'Raleway', sans-serif;
+  background-color: #b1f896; }
 
 body:before {
   content: "";
@@ -37,6 +38,4 @@ body:before {
   filter: blur(15px); }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Arvo", serif; }
-
-/*# sourceMappingURL=compiled.css.map */
+  font-family: 'Arvo', serif; }
