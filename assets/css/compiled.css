@@ -1,0 +1,42 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700,400italic|Raleway:400,200);
+body, p, ul, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0; }
+
+* {
+  box-sizing: border-box; }
+
+.container {
+  width: 980px;
+  margin: 0 auto; }
+
+.weather-wrapper {
+  width: 60%;
+  margin: 0 auto; }
+
+a {
+  text-decoration: none;
+  color: #26A86D; }
+  a:visited {
+    color: #26A86D; }
+
+body {
+  font-family: "Raleway", sans-serif; }
+
+body:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  background-size: 100% 100%;
+  width: 120%;
+  height: 120%;
+  -webkit-filter: blur(15px);
+  filter: blur(15px); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Arvo", serif; }
+
+/*# sourceMappingURL=compiled.css.map */
