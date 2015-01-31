@@ -1,0 +1,22 @@
+{
+  "name": "weatherapp",
+  "version": "0.0.0",
+  "authors": [
+    "Brent O'Neill",
+    "Courtland Gaba"
+  ],
+  "description": "simple app to display current locations current weather",
+  "main": "index.html",
+  "keywords": [
+    "weather"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

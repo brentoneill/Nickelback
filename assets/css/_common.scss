@@ -1,0 +1,32 @@
+a {
+  text-decoration:none;
+  color:$green;
+  &:visited {
+    color:$green;
+  }
+  &:hover {
+
+  }
+}
+
+body {
+  font-family:$body-font;
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display:block;
+  background-size:100% 100%;
+  width:120%;
+  height:120%;
+  -webkit-filter: blur(15px);
+  filter: blur(15px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:$header-font;
+}
