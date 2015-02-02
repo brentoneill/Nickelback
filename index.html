@@ -2,32 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Weather App</title>
+  <title>weatherTRAFFIC</title>
   <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="assets/weather-icons-master/css/weather-icons.css">
+  <link rel="stylesheet" href="assets/css/weather-icons-master/css/weather-icons.css">
   <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBNLDwRv4ItlTJRouExNPpJokdKK859yDk">
+      src="https://maps.googleapis.com/maps/api/js?v=3.0sensor=false&libraries=places&key=AIzaSyCE8Vcveky1BARmhlJFXwEBnsPJVGULfF0">
   </script>
-  <link rel="stylesheet" href="assets/css/lumen.css">
   <link rel="stylesheet" href="assets/css/compiled.css">
 </head>
 <body>
-  <div id="googlemaps"></div>
-  <div class="container">
-    <div class="weather-wrapper">
+  <div id="googlemap"></div>
+  <div class="logo">
+    <h1></h1>
+  </div>
+  <div class="container-cust">
+    <div class="weather-wrapper" id="draggable">
+      <div class="minimize hidden">
+        <i class="fa fa-minus-square-o"></i>
+      </div>
       <section>
-
+        <div class="loader">
+          <h3>Please wait. Your local data is loading.</h3>
+          <br />
+          <i class="fa fa-3x fa-spinner fa-pulse"></i>
+        </div>
       </section>
-        <input type="text" name="city" placeholder="City, Country"><a class ="btn btn-primary set-city" href="">Set City</a>
-        <!-- <p>OR</p>
-        <input type="text" name="lat" placeholder="Latitude">, <input type="text" name="long" placeholder="Longtitude"><a class ="btn btn-primary set-coord" href="">Set Coordiantes</a> -->
+      <div class="controls hidden">
+        <input id="citySearch"type="text" name="city" placeholder="Enter place name here">
+      </div>
     </div>
-
+  </div>
 <!--Bower components-->
 <script src="assets/bower_components/jquery/dist/jquery.js"></script>
+<script src="assets/bower_components/jquery-ui/jquery-ui.js"></script>
 <script src="assets/bower_components/underscore/underscore.js"></script>
-<script src="assets/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="assets/bower_components/moment/moment.js"></script>
 <!--Templates here -->
 <script src="assets/js/icons.js"></script>

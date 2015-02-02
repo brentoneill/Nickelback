@@ -1,5 +1,4 @@
 var setIcon = function(id) {
-    console.log("Setting icon");
     // if statement for weather icons
 
     var icon = "";
@@ -110,6 +109,5 @@ var setIcon = function(id) {
     else if (id == 962) {
         icon ="wi-hurricane";
     }
-    console.log(icon);
     return icon;
 };
