@@ -1,0 +1,21 @@
+//Animation for traffic ticker
+@keyframes marquee {
+    0%   { text-indent: 100% }
+    100% { text-indent: -270% }
+}
+
+@-webkit-keyframes marquee {
+    0%   { text-indent: 100% }
+    100% { text-indent: -270% }
+}
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: marquee 70s linear infinite;
+    -webkit-animation: marquee 70s linear infinite;
+}
+
+.marquee:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}

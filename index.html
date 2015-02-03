@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>weatherTRAFFIC</title>
   <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/bower_components/animate.css/animate.css">
   <link rel="stylesheet" href="assets/css/weather-icons-master/css/weather-icons.css">
   <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?v=3.0sensor=false&libraries=places&key=AIzaSyCE8Vcveky1BARmhlJFXwEBnsPJVGULfF0">
@@ -12,25 +13,32 @@
 </head>
 <body>
   <div id="googlemap"></div>
-  <div class="logo">
-    <h1></h1>
+  <div class="logo hidden">
+    <h1>weather + traffic</h1>
   </div>
   <div class="container-cust">
     <div class="weather-wrapper" id="draggable">
       <div class="minimize hidden">
-        <i class="fa fa-minus-square-o"></i>
+        <i class="fa fa-2x fa-minus-square-o"></i>
       </div>
       <section>
+        <!--- Loader that disappears once coordinates are generated -->
         <div class="loader">
           <h3>Please wait. Your local data is loading.</h3>
           <br />
           <i class="fa fa-3x fa-spinner fa-pulse"></i>
         </div>
+      <!---          Weather data inserted here via js        -------->
       </section>
       <div class="controls hidden">
         <input id="citySearch"type="text" name="city" placeholder="Enter place name here">
       </div>
     </div>
+  </div>
+  <div class="traffic-ticker">
+    <section>
+      <p class="marquee"><!---Traffic events go here!--></p>
+    </section>
   </div>
 <!--Bower components-->
 <script src="assets/bower_components/jquery/dist/jquery.js"></script>
