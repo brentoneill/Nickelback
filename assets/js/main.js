@@ -146,7 +146,7 @@ $(document).ready(function(){
        results: "&maxresults=5"
      }
      //Remove old traffic data
-     $('.traffic-item').remove();
+     $('.marquee span').remove();
      //Get new traffic data
      $.ajax({
          url: tConfig.base + tConfig.bbox + tConfig.appID + tConfig.appCODE + tConfig.act + tConfig.results + "&jsoncallback=?",
