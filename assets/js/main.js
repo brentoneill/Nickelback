@@ -135,7 +135,8 @@ $(document).ready(function(){
      //Get traffic data//
      ////////////////////
      //Get bounding box from Google Place object
-     newBBox = "&bbox=" + place.geometry.viewport.Ca.j + "," + place.geometry.viewport.va.j + ";" + place.geometry.viewport.Ca.k + "," + place.geometry.viewport.va.k;
+     console.log(place);
+     newBBox = "&bbox=" + place.geometry.viewport.Da.j + "," + place.geometry.viewport.wa.j + ";" + place.geometry.viewport.Da.k + "," + place.geometry.viewport.wa.k;
 
      tConfig = {
        base: "http://traffic.cit.api.here.com/traffic/6.0/incidents.json?",
