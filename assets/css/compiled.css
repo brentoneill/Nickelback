@@ -18,7 +18,7 @@ body, p, ul, h1, h2, h3, h4, h5, h6 {
     text-shadow: 2px 2px 2px black; }
 
 .container-cust {
-  width: 980px;
+  width: auto;
   margin: 0 auto; }
 
 .weather-wrapper {
@@ -42,7 +42,10 @@ body, p, ul, h1, h2, h3, h4, h5, h6 {
     .weather-wrapper .minimize i {
       cursor: pointer;
       color: white;
-      float: right; }
+      float: right;
+      transition: color .5s ease; }
+      .weather-wrapper .minimize i:hover {
+        color: #00e600; }
   .weather-wrapper section {
     margin-bottom: 20px; }
     .weather-wrapper section h1, .weather-wrapper section h2, .weather-wrapper section h3, .weather-wrapper section h4, .weather-wrapper section p, .weather-wrapper section i, .weather-wrapper section span {

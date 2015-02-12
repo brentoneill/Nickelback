@@ -52,12 +52,9 @@ function success(position) {
   lon = data.coord.lon;
 
   var mapOptions = {
-   draggable: false,
    scrollwheel: false,
-   panControl: false,
    zoom: 10,
    center: new google.maps.LatLng(lat, lon),
-   disableDefaultUI: true,
    mapTypeId: google.maps.MapTypeId.HYBRID
   }
   var map = new google.maps.Map(document.getElementById("googlemap"), mapOptions);
@@ -117,12 +114,9 @@ $(document).ready(function(){
         lon = data.coord.lon;
         //Set the options for the map background
         var mapOptions = {
-           draggable: false,
            scrollwheel: false,
-           panControl: false,
            zoom: 10,
            center: new google.maps.LatLng(lat, lon),
-           disableDefaultUI: true,
            mapTypeId: google.maps.MapTypeId.HYBRID
         }
         //Create map and add traffic layer to map

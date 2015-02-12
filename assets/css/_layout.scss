@@ -12,7 +12,7 @@
 }
 
 .container-cust {
-  width:980px;
+  width:auto;
   margin:0 auto;
 }
 .weather-wrapper {
@@ -37,6 +37,10 @@
       cursor:pointer;
       color:white;
       float:right;
+      transition:color .5s ease;
+      &:hover {
+        color:lighten(green, 20%);
+      }
     }
   }
   section {
