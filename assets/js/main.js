@@ -46,7 +46,6 @@ function success(position) {
  var apiURL = api + "lat=" +  lat + "&" + "lon=" + lon +"&units=imperial" + apiKey;
  var localWeather = $.getJSON(apiURL, function(data){
   wPage.renderCWeather(data);
-  console.log(data);
 
   lat = data.coord.lat;
   lon = data.coord.lon;
@@ -54,6 +53,7 @@ function success(position) {
   var mapOptions = {
    scrollwheel: false,
    zoom: 10,
+   disableDefaultUI: true,
    center: new google.maps.LatLng(lat, lon),
    mapTypeId: google.maps.MapTypeId.HYBRID
   }
@@ -99,11 +99,10 @@ $(document).ready(function(){
       var apiURL = api + "lat=" +  lat + "&" + "lon=" + lon +"&units=imperial" + apiKey;
       //Log some stuff...
       console.log(place);
-      console.log(lat);
-      console.log(lon);
+
+
       //get JSON technique to retrieve data
       var localWeather = $.getJSON(apiURL, function(data) {
-        console.log(data.name);
         $('.cur-weather').remove();
         //Switch name of data to the name from the autocomplete object
         data.name = place.formatted_address;
@@ -116,6 +115,7 @@ $(document).ready(function(){
         var mapOptions = {
            scrollwheel: false,
            zoom: 10,
+           disableDefaultUI: true,
            center: new google.maps.LatLng(lat, lon),
            mapTypeId: google.maps.MapTypeId.HYBRID
         }
@@ -123,15 +123,19 @@ $(document).ready(function(){
         var map = new google.maps.Map(document.getElementById("googlemap"), mapOptions);
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
-     });
 
+        var bounds = map.getBounds();
+        var ne = bounds.getNorthEast(); // LatLng of the north-east corner
+        var sw = bounds.getSouthWest();
+        nw = new google.maps.LatLng(ne.lat(), sw.lng());
+        se = new google.maps.LatLng(sw.lat(), ne.lng());
+     });
      ////////////////////
      //Get traffic data//
      ////////////////////
      //Get bounding box from Google Place object
-     console.log(place);
-     newBBox = "&bbox=" + place.geometry.viewport.Da.j + "," + place.geometry.viewport.wa.j + ";" + place.geometry.viewport.Da.k + "," + place.geometry.viewport.wa.k;
-
+     newBBox = "&bbox=" + place.geometry.viewport.Ca.j + "," + place.geometry.viewport.va.j + ";" + place.geometry.viewport.Ca.k + "," + place.geometry.viewport.va.k;
+     console.log(newBBox);
      tConfig = {
        base: "http://traffic.cit.api.here.com/traffic/6.0/incidents.json?",
        bbox: newBBox,
