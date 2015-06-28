@@ -49,6 +49,7 @@ function success(position) {
   var mapOptions = {
    scrollwheel: false,
    zoom: 10,
+   disableDefaultUI: true,
    center: new google.maps.LatLng(lat, lon),
    mapTypeId: google.maps.MapTypeId.HYBRID
   }
@@ -93,7 +94,6 @@ $(document).ready(function(){
 
       //Creating the URL for the api Call
       var apiURL = api + "lat=" +  lat + "&" + "lon=" + lon +"&units=imperial" + apiKey;
-      //Log some stuff...
 
       //get JSON technique to retrieve data
       var localWeather = $.getJSON(apiURL, function(data) {
@@ -109,6 +109,7 @@ $(document).ready(function(){
         var mapOptions = {
            scrollwheel: false,
            zoom: 10,
+           disableDefaultUI: true,
            center: new google.maps.LatLng(lat, lon),
            mapTypeId: google.maps.MapTypeId.HYBRID
         }
@@ -116,8 +117,13 @@ $(document).ready(function(){
         var map = new google.maps.Map(document.getElementById("googlemap"), mapOptions);
         var trafficLayer = new google.maps.TrafficLayer();
         trafficLayer.setMap(map);
-     });
 
+        var bounds = map.getBounds();
+        var ne = bounds.getNorthEast(); // LatLng of the north-east corner
+        var sw = bounds.getSouthWest();
+        nw = new google.maps.LatLng(ne.lat(), sw.lng());
+        se = new google.maps.LatLng(sw.lat(), ne.lng());
+     });
      ////////////////////
      //Get traffic data//
      ////////////////////
