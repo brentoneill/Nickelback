@@ -88,8 +88,13 @@ $(document).ready(function(){
     //Function to run when the autocomplete input has a place change
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
       var place = autocomplete.getPlace();
-      var lat = place.geometry.location.k;
-      var lon = place.geometry.location.D;
+      var lat = place.geometry.location.A;
+      var lon = place.geometry.location.F;
+
+      console.log(place);
+      console.log(lat);
+      console.log(lon);
+
       //parse the lat and lon to 3 decimal places
       lat = parseFloat(lat.toFixed(3));
       lon = parseFloat(lon.toFixed(3));
@@ -98,9 +103,7 @@ $(document).ready(function(){
       //Creating the URL for the api Call
       var apiURL = api + "lat=" +  lat + "&" + "lon=" + lon +"&units=imperial" + apiKey;
       //Log some stuff...
-      console.log(place);
-      console.log(lat);
-      console.log(lon);
+
       //get JSON technique to retrieve data
       var localWeather = $.getJSON(apiURL, function(data) {
         console.log(data.name);
@@ -130,7 +133,7 @@ $(document).ready(function(){
      ////////////////////
      //Get bounding box from Google Place object
      console.log(place);
-     newBBox = "&bbox=" + place.geometry.viewport.Da.j + "," + place.geometry.viewport.wa.j + ";" + place.geometry.viewport.Da.k + "," + place.geometry.viewport.wa.k;
+     newBBox = "&bbox=" + place.geometry.viewport.ra.A + "," + place.geometry.viewport.za.j + ";" + place.geometry.viewport.ra.A + "," + place.geometry.viewport.za.j;
 
      tConfig = {
        base: "http://traffic.cit.api.here.com/traffic/6.0/incidents.json?",
@@ -148,9 +151,6 @@ $(document).ready(function(){
          type:'GET',
          dataType: 'JSON',
          crossDomain:true,
-         log:function(){
-           console.log(url);
-         },
          success: function (data) {
            console.log( tConfig.base + tConfig.bbox + tConfig.appID + tConfig.appCODE + tConfig.act + tConfig.results);
            //Render new traffic for area
