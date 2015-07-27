@@ -3,7 +3,6 @@ var wPage = {
   init: function() {
     wPage.initStyling();
     wPage.initEvents();
-    console.log("Page initialized!");
   },
   initStyling: function() {
 
@@ -14,16 +13,13 @@ var wPage = {
   renderCWeather: function(weatherData,index,array) {
     var compiled = _.template(templates.cWeather);
     $('.weather-wrapper section').prepend(compiled(weatherData));
-    console.log("Weather rendered");
   },
   renderTraffic: function(trafficItem, index, array) {
     var compiled = _.template(templates.traffic);
     $('.traffic-ticker section p').prepend(compiled(trafficItem));
-    console.log("traffic rendered");
   },
   renderAllTraffic: function(trafficData){
-    console.log("all traffic rendered");
-    _.each(trafficData, wPage.renderTraffic);
+    _.each(trafficData.TRAFFIC_ITEM, wPage.renderTraffic);
   },
 };
 
@@ -46,7 +42,6 @@ function success(position) {
  var apiURL = api + "lat=" +  lat + "&" + "lon=" + lon +"&units=imperial" + apiKey;
  var localWeather = $.getJSON(apiURL, function(data){
   wPage.renderCWeather(data);
-  console.log(data);
 
   lat = data.coord.lat;
   lon = data.coord.lon;
@@ -79,8 +74,8 @@ $(document).ready(function(){
   //Set up function to change weather on autocomplete changes
   function initializeAutoComplete() {
     var options = {
-         types: ['(cities)'],
-      componentRestrictions: {country: "us"}
+       types: ['(cities)'],
+       componentRestrictions: {country: "us"}
      };
     //Sets up the autocomplete on the input box
     var input = document.getElementById('citySearch');
@@ -90,10 +85,6 @@ $(document).ready(function(){
       var place = autocomplete.getPlace();
       var lat = place.geometry.location.A;
       var lon = place.geometry.location.F;
-
-      console.log(place);
-      console.log(lat);
-      console.log(lon);
 
       //parse the lat and lon to 3 decimal places
       lat = parseFloat(lat.toFixed(3));
@@ -106,7 +97,6 @@ $(document).ready(function(){
 
       //get JSON technique to retrieve data
       var localWeather = $.getJSON(apiURL, function(data) {
-        console.log(data.name);
         $('.cur-weather').remove();
         //Switch name of data to the name from the autocomplete object
         data.name = place.formatted_address;
@@ -132,11 +122,11 @@ $(document).ready(function(){
      //Get traffic data//
      ////////////////////
      //Get bounding box from Google Place object
-     console.log(place);
-     newBBox = "&bbox=" + place.geometry.viewport.ra.A + "," + place.geometry.viewport.za.j + ";" + place.geometry.viewport.ra.A + "," + place.geometry.viewport.za.j;
+     console.log(place)
+     newBBox = "&bbox=" + place.geometry.viewport.ya.j + "," + place.geometry.viewport.ra.j + ";" + place.geometry.viewport.ya.A + "," + place.geometry.viewport.ra.A;
 
      tConfig = {
-       base: "http://traffic.cit.api.here.com/traffic/6.0/incidents.json?",
+       base: "http://traffic.cit.api.here.com/traffic/6.1/incidents.json?",
        bbox: newBBox,
        appID: "&app_id=2tvvsmnmOtXFsVaYHEnm",
        appCODE: "&app_code=t6iD973-SYhi0MLtjvBM4g",
@@ -155,7 +145,7 @@ $(document).ready(function(){
            console.log( tConfig.base + tConfig.bbox + tConfig.appID + tConfig.appCODE + tConfig.act + tConfig.results);
            //Render new traffic for area
            console.log(data);
-           data = data.TRAFFICITEMS.TRAFFICITEM;
+           data = data.TRAFFIC_ITEMS;
            console.log(data);
            wPage.renderAllTraffic(data);
          },

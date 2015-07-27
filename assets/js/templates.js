@@ -20,5 +20,5 @@ templates.cWeather = [
 
 
 templates.traffic = [
-    "<span><%= TRAFFICITEMDESCRIPTION[0].content %></span>"
+    "<span><%= TRAFFIC_ITEM_DESCRIPTION[1].value %></span>"
 ].join("");
